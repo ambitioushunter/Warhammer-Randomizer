@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #29221e, #100e0d 75%);
+    color: #e8d4ad;
+    font-family: 'Cinzel', Georgia, serif;
+    text-align: center;
+}
+
+header {
+    padding: 28px 10px 10px;
+}
+
+h1 {
+    font-size: clamp(32px, 6vw, 55px);
+    letter-spacing: 8px;
+    color: #c99a48;
+    margin: 0;
+    text-shadow: 0 0 18px #8b4b20;
+}
+
+.subtitle {
+    letter-spacing: 5px;
+    font-size: 13px;
+    color: #a88c66;
+}
+
+.selection-screen {
+    width: min(95%, 750px);
+    margin: 25px auto;
+    padding: 25px 15px;
+    border: 1px solid #806333;
+    background: rgba(20, 16, 13, 0.85);
+    box-shadow: 0 0 35px #000;
+}
+
+h2 {
+    color: #d1a85c;
+    letter-spacing: 3px;
+    font-size: 23px;
+}
+
+#stage-description {
+    color: #b8a68b;
+    margin-bottom: 25px;
+}
+
+.wheel-container {
+    width: min(82vw, 520px);
+    aspect-ratio: 1;
+    margin: 30px auto;
+    position: relative;
+    border-radius: 50%;
+    border: 5px solid #b28a43;
+    box-shadow: 0 0 20px #000, 0 0 18px #a16c2e;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.pointer {
+    position: absolute;
+    z-index: 2;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 17px solid transparent;
+    border-right: 17px solid transparent;
+    border-top: 40px solid #d7b15f;
+    filter: drop-shadow(0 2px 3px black);
+}
+
+#result {
+    min-height: 48px;
+    padding: 12px;
+    margin: 15px auto;
+    color: #e7bd6d;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+button {
+    font-family: 'Cinzel', Georgia, serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 13px 30px;
+    color: #f0dfbd;
+    background: linear-gradient(#704522, #352015);
+    border: 2px solid #b38a48;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover:not(:disabled) {
+    background: linear-gradient(#a16c32, #58351c);
+    box-shadow: 0 0 15px #a16c32;
+}
+
+button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+#restart-button {
+    margin-top: 20px;
+    padding: 8px 18px;
+    font-size: 11px;
+}
+
+footer {
+    padding: 20px;
+    color: #806b4d;
+    letter-spacing: 4px;
+    font-size: 12px;
+}
+
+@media (max-width: 480px) {
+    .selection-screen {
+        padding: 20px 8px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    #result {
+        font-size: 17px;
+    }
+}
+/* Ancient magical artifact styling */
+
+.selection-screen {
+    border: 3px double #a98543;
+    outline: 1px solid rgba(201, 154, 72, 0.25);
+    outline-offset: 7px;
+    background:
+        radial-gradient(ellipse at top, rgba(105, 65, 29, 0.2), transparent 65%),
+        rgba(17, 13, 11, 0.96);
+    box-shadow:
+        0 0 35px #000,
+        inset 0 0 35px rgba(117, 76, 31, 0.12);
+}
+
+.wheel-container {
+    border: 5px double #d0a653;
+    outline: 2px solid #63451f;
+    outline-offset: 8px;
+    box-shadow:
+        0 0 20px #000,
+        0 0 25px rgba(180, 126, 45, 0.5),
+        inset 0 0 20px #000;
+}
+
+.wheel-container::before {
+    content: "";
+    position: absolute;
+    inset: -19px;
+    border: 2px solid #806333;
+    border-radius: 50%;
+    box-shadow:
+        0 0 12px rgba(201, 154, 72, 0.3),
+        inset 0 0 12px rgba(201, 154, 72, 0.15);
+    pointer-events: none;
+}
+
+.wheel-container::after {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 1px dashed rgba(230, 190, 105, 0.55);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+canvas {
+    position: relative;
+    z-index: 1;
+}
+
+.rune-marks {
+    position: absolute;
+    inset: -37px;
+    z-index: 3;
+    pointer-events: none;
+    color: #d5ad62;
+    font-size: 25px;
+    text-shadow: 0 0 10px #c58a32;
+}
+
+.rune-marks span {
+    position: absolute;
+}
+
+.rune-top {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.rune-bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.rune-left {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.rune-right {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.pointer {
+    border-top-color: #f0c56e;
+    filter:
+        drop-shadow(0 0 5px #d99a38)
+        drop-shadow(0 2px 3px black);
+}
+
+button {
+    background: linear-gradient(135deg, #80602c, #382315 55%, #21150f);
+    border: 2px solid #c29a50;
+    box-shadow: inset 0 0 8px rgba(255, 210, 120, 0.12);
+}
+
+button:hover:not(:disabled) {
+    background: linear-gradient(135deg, #b58a42, #68401e);
+    box-shadow: 0 0 18px rgba(210, 155, 65, 0.6);
+}
+
+#result {
+    text-shadow: 0 0 12px rgba(219, 164, 75, 0.45);
+}
+/* Ancient artifact centerpiece */
+
+.wheel-core {
+    position: absolute;
+    z-index: 4;
+    width: 86px;
+    height: 86px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: 4px double #e0b75e;
+
+    background:
+        radial-gradient(circle, #80602c 0%, #382313 55%, #130d09 100%);
+
+    color: #f5d58a;
+    font-size: 38px;
+
+    text-shadow:
+        0 0 8px #ffcf68,
+        0 0 18px #c58a32;
+
+    box-shadow:
+        0 0 12px #000,
+        0 0 18px rgba(221, 169, 76, 0.65),
+        inset 0 0 12px #000;
+
+    pointer-events: none;
+}
+
+.wheel-core::before {
+    content: "";
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    border: 1px solid #b68b43;
+    box-shadow: 0 0 8px rgba(213, 166, 83, 0.5);
+}
+
+.wheel-core::after {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 220, 145, 0.45);
+}

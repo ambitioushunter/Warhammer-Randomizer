@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warhammer Campaign Randomizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>WARHAMMER</h1>
+        <p class="subtitle">CAMPAIGN RANDOMIZER</p>
+    </header>
+
+    <main>
+        <section class="selection-screen">
+            <h2 id="stage-title">CHOOSE YOUR FACTION</h2>
+            <p id="stage-description">Let fate decide your next campaign.</p>
+
+            <div class="wheel-container">
+    <div class="rune-marks" aria-hidden="true">
+        <span class="rune-top">✦</span>
+        <span class="rune-right">ᚱ</span>
+        <span class="rune-bottom">✧</span>
+        <span class="rune-left">ᚠ</span>
+    </div>
+
+    <div class="pointer"></div>
+    <canvas id="wheel" width="600" height="600"></canvas>
+    <div class="wheel-core">✦</div>
+</div>
+
+            <div id="result">Awaiting the spin...</div>
+
+            <div class="controls">
+                <button id="spin-button">SPIN</button>
+                <button id="next-button" disabled>NEXT</button>
+            </div>
+
+            <button id="restart-button">START OVER</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>THE OLD WORLD AWAITS</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
